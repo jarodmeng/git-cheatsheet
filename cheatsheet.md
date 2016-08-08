@@ -61,6 +61,8 @@ order.
     * `git log --graph` displays commits history in a graph. It can be used with
 `--pretty`.
 
+    * `git log --decorate` shows ref names of any commits shown.
+
 * `git reset`
 
     * `git reset HEAD <file>` resets the index entry of `<file>` to its state at
@@ -70,6 +72,14 @@ order.
 
     * `git checkout -- <file>` discards un-staged changes in `<file>` in the
 working directory.
+
+    * `git checkout <branch name>` switches HEAD to the branch named `<branch
+name>`.
+
+    * `git checkout -b <local branch name> <remote name>/<remote branch name>`
+creates and checks out a branch named `<local branch name>` that tracks `<remote
+branch name>` on `<remote name>`. `git checkout --track <remote name>/<branch
+name>` does the same, but uses the same branch name.
 
 * `git merge`
 
@@ -83,7 +93,7 @@ repository as a shortname. The shortname serves as an alias for the repository
 URL.
 
     * `git remote show <remote name>` shows information about a particular
-remote.
+remote. It's equivalent to `git ls-remote <remote name>`.
 
     * `git remote rename <old remote name> <new remote name>` renamed the `<old
 remote name>` to `<new remote name>`.
@@ -102,6 +112,9 @@ merge them.
     * `git push <remote name> <branch name>` push `<branch name` to your
 `<remote name>` server.
 
+    * `git push <remote name> --delete <branch name>` delete `<branch name>`
+from `<remote name>`.
+
 * `git tag` manages tag objects.
 
     * `git tag <tag name>` creates a lightweight tag.
@@ -110,3 +123,20 @@ merge them.
 supply an inline tag message using `-m <message>`. If you wish to associate
 another commit other than HEAD, you can supply the `<commit>` at the end of the
 command call.
+
+* `git branch` manages branches.
+
+    * `git branch` lists all current branches. `git branch -v` also lists the
+last commit for each branch.
+
+    * `git branch --merged` lists branches that have been merged into the
+current branch. `git branch --no-merged` does the opposite, listing branches
+that have not been merged yet.
+
+    * `git branch <branch name>` creates a branch following `<branch name>`.
+
+    * `git branch -d <branch name>` deletes the branch named `<branch name>`.
+
+    * `git branch -vv` lists all branches and their tracking branches.
+
+* `git rebase` reapplies commits on top of another base tip.
